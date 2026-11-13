@@ -1,0 +1,7 @@
+{
+  "parent": "retrotech:block/pipe_core",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "pipe": "retrotech:block/gold_fluid_pipe"
+  }
+}

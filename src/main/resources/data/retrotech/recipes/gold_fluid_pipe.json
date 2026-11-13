@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "retrotech:gold_pipe"
+    },
+    {
+      "tag": "forge:slimeballs"
+    }
+  ],
+  "result": {
+    "item": "retrotech:gold_fluid_pipe"
+  }
+}

@@ -52,6 +52,10 @@ public final class ModMenus {
             () -> IForgeMenuType.create((id, inv, buf) ->
                     MachineMenu.client(ModMenus.QUARRY.get(), MachineKind.QUARRY, id, inv)));
 
+    public static final RegistryObject<MenuType<MachineMenu>> PUMP = MENUS.register("pump",
+            () -> IForgeMenuType.create((id, inv, buf) ->
+                    MachineMenu.client(ModMenus.PUMP.get(), MachineKind.PUMP, id, inv)));
+
     private ModMenus() {
     }
 }

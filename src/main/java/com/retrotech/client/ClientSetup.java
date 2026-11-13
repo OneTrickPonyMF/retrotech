@@ -28,6 +28,7 @@ public final class ClientSetup {
             MenuScreens.register(ModMenus.REDSTONE_ENGINE.get(), MachineScreen::new);
             MenuScreens.register(ModMenus.STIRLING_ENGINE.get(), MachineScreen::new);
             MenuScreens.register(ModMenus.QUARRY.get(), MachineScreen::new);
+            MenuScreens.register(ModMenus.PUMP.get(), MachineScreen::new);
         });
     }
 
@@ -35,5 +36,8 @@ public final class ClientSetup {
     public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.PIPE.get(), PipeRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntities.QUARRY.get(), QuarryRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.FLUID_PIPE.get(), FluidPipeRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.TANK.get(), TankRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.PUMP.get(), PumpRenderer::new);
     }
 }

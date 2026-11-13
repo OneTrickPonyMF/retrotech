@@ -13,6 +13,7 @@
     "retrotech:solar_panel",
     "retrotech:stirling_engine",
     "retrotech:quarry",
-    "retrotech:quarry_frame"
+    "retrotech:quarry_frame",
+    "retrotech:pump"
   ]
 }

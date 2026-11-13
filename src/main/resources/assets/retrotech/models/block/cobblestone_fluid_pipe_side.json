@@ -1,0 +1,7 @@
+{
+  "parent": "retrotech:block/pipe_side",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "pipe": "retrotech:block/cobblestone_fluid_pipe"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IRI",
+    "ITI",
+    "IGI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "T": {
+      "item": "retrotech:tank"
+    },
+    "G": {
+      "tag": "forge:gears/iron"
+    }
+  },
+  "result": {
+    "item": "retrotech:pump"
+  }
+}

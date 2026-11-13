@@ -7,6 +7,9 @@ import com.retrotech.blockentity.GeneratorBlockEntity;
 import com.retrotech.blockentity.EngineBlockEntity;
 import com.retrotech.blockentity.ProcessingMachineBlockEntity;
 import com.retrotech.blockentity.QuarryBlockEntity;
+import com.retrotech.blockentity.PumpBlockEntity;
+import com.retrotech.fluid.TankBlockEntity;
+import com.retrotech.pipe.FluidPipeBlockEntity;
 import com.retrotech.pipe.PipeBlockEntity;
 import com.retrotech.blockentity.SolarPanelBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -69,6 +72,20 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<PipeBlockEntity>> PIPE = BLOCK_ENTITIES.register(
             "pipe", () -> BlockEntityType.Builder.of(PipeBlockEntity::new, ModBlocks.WOODEN_PIPE.get(),
                     ModBlocks.COBBLESTONE_PIPE.get(), ModBlocks.STONE_PIPE.get(), ModBlocks.GOLD_PIPE.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<FluidPipeBlockEntity>> FLUID_PIPE = BLOCK_ENTITIES.register(
+            "fluid_pipe", () -> BlockEntityType.Builder.of(FluidPipeBlockEntity::new, ModBlocks.WOODEN_FLUID_PIPE.get(),
+                    ModBlocks.COBBLESTONE_FLUID_PIPE.get(), ModBlocks.STONE_FLUID_PIPE.get(),
+                    ModBlocks.GOLD_FLUID_PIPE.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<TankBlockEntity>> TANK = BLOCK_ENTITIES.register(
+            "tank", () -> BlockEntityType.Builder.of(TankBlockEntity::new, ModBlocks.TANK.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<PumpBlockEntity>> PUMP = BLOCK_ENTITIES.register(
+            "pump", () -> BlockEntityType.Builder.of(PumpBlockEntity::new, ModBlocks.PUMP.get()).build(null));
 
     private ModBlockEntities() {
     }

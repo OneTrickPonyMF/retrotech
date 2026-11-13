@@ -25,7 +25,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import java.util.EnumMap;
 import java.util.Map;
 
-/** Tubería de items al estilo BuildCraft (8 píxeles de grosor). */
+/** Tubería de items o de fluidos al estilo BuildCraft (8 píxeles de grosor). */
 public class PipeBlock extends BaseEntityBlock {
     private static final VoxelShape CORE = Block.box(4, 4, 4, 12, 12, 12);
     private static final Map<Direction, VoxelShape> ARMS = new EnumMap<>(Direction.class);
@@ -41,10 +41,12 @@ public class PipeBlock extends BaseEntityBlock {
     }
 
     private final PipeType type;
+    private final boolean fluid;
 
-    public PipeBlock(Properties properties, PipeType type) {
+    public PipeBlock(Properties properties, PipeType type, boolean fluid) {
         super(properties);
         this.type = type;
+        this.fluid = fluid;
         BlockState state = stateDefinition.any();
         for (BooleanProperty prop : CableBlock.PROPERTIES.values()) {
             state = state.setValue(prop, false);
@@ -54,6 +56,10 @@ public class PipeBlock extends BaseEntityBlock {
 
     public PipeType getType() {
         return type;
+    }
+
+    public boolean isFluidPipe() {
+        return fluid;
     }
 
     public static boolean isConnected(BlockState state, Direction dir) {
@@ -84,10 +90,11 @@ public class PipeBlock extends BaseEntityBlock {
 
     private boolean canConnectTo(BlockGetter level, BlockPos neighborPos, Direction dir) {
         BlockState neighbor = level.getBlockState(neighborPos);
-        if (neighbor.getBlock() instanceof PipeBlock other) return type.canConnectTo(other.type);
+        if (neighbor.getBlock() instanceof PipeBlock other) return other.fluid == fluid && type.canConnectTo(other.type);
         BlockEntity be = level.getBlockEntity(neighborPos);
         if (be == null) return false;
-        if (be.getCapability(ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).isPresent()) return true;
+        if (be.getCapability(fluid ? ForgeCapabilities.FLUID_HANDLER : ForgeCapabilities.ITEM_HANDLER,
+                dir.getOpposite()).isPresent()) return true;
         // La de madera también se conecta a motores (para recibir energía)
         return type == PipeType.WOODEN && be.getCapability(ForgeCapabilities.ENERGY, dir.getOpposite())
                 .map(e -> e.canExtract()).orElse(false);
@@ -119,13 +126,14 @@ public class PipeBlock extends BaseEntityBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new PipeBlockEntity(pos, state);
+        return fluid ? new FluidPipeBlockEntity(pos, state) : new PipeBlockEntity(pos, state);
     }
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return (lvl, pos, st, be) -> {
             if (be instanceof PipeBlockEntity pipe) pipe.tick();
+            else if (be instanceof FluidPipeBlockEntity pipe && !lvl.isClientSide) pipe.serverTick();
         };
     }
 

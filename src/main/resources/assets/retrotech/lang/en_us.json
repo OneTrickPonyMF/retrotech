@@ -48,5 +48,15 @@
   "gui.retrotech.quarry.mining": "Mining at Y = %s",
   "gui.retrotech.quarry.done": "Finished",
   "gui.retrotech.engine.on": "Running (redstone signal)",
-  "gui.retrotech.engine.off": "Stopped: needs a redstone signal"
+  "gui.retrotech.engine.off": "Stopped: needs a redstone signal",
+  "block.retrotech.wooden_fluid_pipe": "Wooden Fluid Pipe",
+  "block.retrotech.cobblestone_fluid_pipe": "Cobblestone Fluid Pipe",
+  "block.retrotech.stone_fluid_pipe": "Stone Fluid Pipe",
+  "block.retrotech.gold_fluid_pipe": "Golden Fluid Pipe",
+  "block.retrotech.tank": "Tank",
+  "block.retrotech.pump": "Pump",
+  "block.retrotech.pump_tube": "Pump Tube",
+  "gui.retrotech.pump": "Fluid: %s / %s mB",
+  "message.retrotech.tank": "%s: %s / %s mB",
+  "message.retrotech.empty": "Empty"
 }

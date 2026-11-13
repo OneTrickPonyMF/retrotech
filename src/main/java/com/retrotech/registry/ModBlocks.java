@@ -13,6 +13,8 @@ import com.retrotech.blockentity.ElectricFurnaceBlockEntity;
 import com.retrotech.blockentity.GeneratorBlockEntity;
 import com.retrotech.blockentity.EngineBlockEntity;
 import com.retrotech.blockentity.ProcessingMachineBlockEntity;
+import com.retrotech.blockentity.PumpBlockEntity;
+import com.retrotech.fluid.TankBlock;
 import com.retrotech.blockentity.QuarryBlockEntity;
 import com.retrotech.pipe.PipeBlock;
 import com.retrotech.pipe.PipeType;
@@ -96,10 +98,24 @@ public final class ModBlocks {
     public static final RegistryObject<Block> QUARRY = register("quarry",
             () -> new HorizontalMachineBlock(litMachine(), QuarryBlockEntity::new));
 
-    public static final RegistryObject<Block> WOODEN_PIPE = register("wooden_pipe", () -> pipe(PipeType.WOODEN));
-    public static final RegistryObject<Block> COBBLESTONE_PIPE = register("cobblestone_pipe", () -> pipe(PipeType.COBBLESTONE));
-    public static final RegistryObject<Block> STONE_PIPE = register("stone_pipe", () -> pipe(PipeType.STONE));
-    public static final RegistryObject<Block> GOLD_PIPE = register("gold_pipe", () -> pipe(PipeType.GOLD));
+    public static final RegistryObject<Block> WOODEN_PIPE = register("wooden_pipe", () -> pipe(PipeType.WOODEN, false));
+    public static final RegistryObject<Block> COBBLESTONE_PIPE = register("cobblestone_pipe", () -> pipe(PipeType.COBBLESTONE, false));
+    public static final RegistryObject<Block> STONE_PIPE = register("stone_pipe", () -> pipe(PipeType.STONE, false));
+    public static final RegistryObject<Block> GOLD_PIPE = register("gold_pipe", () -> pipe(PipeType.GOLD, false));
+
+    // ---- Fluidos ----
+    public static final RegistryObject<Block> WOODEN_FLUID_PIPE = register("wooden_fluid_pipe", () -> pipe(PipeType.WOODEN, true));
+    public static final RegistryObject<Block> COBBLESTONE_FLUID_PIPE = register("cobblestone_fluid_pipe", () -> pipe(PipeType.COBBLESTONE, true));
+    public static final RegistryObject<Block> STONE_FLUID_PIPE = register("stone_fluid_pipe", () -> pipe(PipeType.STONE, true));
+    public static final RegistryObject<Block> GOLD_FLUID_PIPE = register("gold_fluid_pipe", () -> pipe(PipeType.GOLD, true));
+    public static final RegistryObject<Block> TANK = register("tank",
+            () -> new TankBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5F)
+                    .sound(SoundType.GLASS).noOcclusion()));
+    public static final RegistryObject<Block> PUMP = register("pump",
+            () -> new SimpleMachineBlock(machine(), PumpBlockEntity::new));
+    public static final RegistryObject<Block> PUMP_TUBE = BLOCKS.register("pump_tube",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(-1.0F, 3600000.0F)
+                    .noLootTable().noOcclusion()));
 
     /** Bloques que coloca la quarry (sin item). */
     public static final RegistryObject<Block> QUARRY_FRAME = BLOCKS.register("quarry_frame",
@@ -109,9 +125,9 @@ public final class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(-1.0F, 3600000.0F)
                     .noLootTable().noOcclusion()));
 
-    private static PipeBlock pipe(PipeType type) {
+    private static PipeBlock pipe(PipeType type, boolean fluid) {
         return new PipeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.25F)
-                .sound(SoundType.GLASS).noOcclusion(), type);
+                .sound(SoundType.GLASS).noOcclusion(), type, fluid);
     }
 
     private static BlockBehaviour.Properties litMachine() {

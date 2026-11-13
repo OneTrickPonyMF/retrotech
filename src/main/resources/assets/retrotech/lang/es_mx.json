@@ -48,5 +48,15 @@
   "gui.retrotech.quarry.mining": "Excavando en Y = %s",
   "gui.retrotech.quarry.done": "Terminado",
   "gui.retrotech.engine.on": "Funcionando (señal de redstone)",
-  "gui.retrotech.engine.off": "Detenido: necesita señal de redstone"
+  "gui.retrotech.engine.off": "Detenido: necesita señal de redstone",
+  "block.retrotech.wooden_fluid_pipe": "Tubería de fluidos de madera",
+  "block.retrotech.cobblestone_fluid_pipe": "Tubería de fluidos de adoquín",
+  "block.retrotech.stone_fluid_pipe": "Tubería de fluidos de piedra",
+  "block.retrotech.gold_fluid_pipe": "Tubería de fluidos de oro",
+  "block.retrotech.tank": "Tanque",
+  "block.retrotech.pump": "Bomba",
+  "block.retrotech.pump_tube": "Tubo de bomba",
+  "gui.retrotech.pump": "Fluido: %s / %s mB",
+  "message.retrotech.tank": "%s: %s / %s mB",
+  "message.retrotech.empty": "Vacío"
 }

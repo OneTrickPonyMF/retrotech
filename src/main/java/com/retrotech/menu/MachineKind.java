@@ -23,7 +23,8 @@ public enum MachineKind {
     SOLAR_PANEL(new int[0][]),
     REDSTONE_ENGINE(new int[0][]),
     STIRLING_ENGINE(new int[][]{{80, 53}}),
-    QUARRY(new int[0][]);
+    QUARRY(new int[0][]),
+    PUMP(new int[0][]);
 
     public static final int INPUT = 0;
     public static final int OUTPUT = 1;

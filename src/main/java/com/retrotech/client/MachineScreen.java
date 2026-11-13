@@ -105,6 +105,9 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
                 default -> Component.translatable("gui.retrotech.quarry.done");
             };
             g.drawString(font, status, x + 10, y + 34, 0xFF404040, false);
+        } else if (kind == MachineKind.PUMP) {
+            g.drawString(font, Component.translatable("gui.retrotech.pump", progress, max), x + 10, y + 34,
+                    0xFF404040, false);
         } else if (kind == MachineKind.REDSTONE_ENGINE) {
             Component status = Component.translatable(progress > 0 ? "gui.retrotech.engine.on" : "gui.retrotech.engine.off");
             g.drawString(font, status, x + 10, y + 34, 0xFF404040, false);
