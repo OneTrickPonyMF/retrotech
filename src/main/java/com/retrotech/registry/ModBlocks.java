@@ -37,13 +37,13 @@ public final class ModBlocks {
     // ---- Componentes ----
     public static final RegistryObject<Block> MACHINE_CASING = register("machine_casing", () -> new Block(machine()));
 
-    // ---- Cables (capacidad EU/t, pérdida por bloque) ----
+    // ---- Cables (capacidad EU/t, pérdida por bloque, grosor en píxeles) ----
     public static final RegistryObject<Block> TIN_CABLE = register("tin_cable",
-            () -> new CableBlock(cable(), 32, 0.025));
+            () -> new CableBlock(cable(), 32, 0.025, 4));
     public static final RegistryObject<Block> COPPER_CABLE = register("copper_cable",
-            () -> new CableBlock(cable(), 128, 0.2));
+            () -> new CableBlock(cable(), 128, 0.2, 6));
     public static final RegistryObject<Block> GOLD_CABLE = register("gold_cable",
-            () -> new CableBlock(cable(), 512, 0.4));
+            () -> new CableBlock(cable(), 512, 0.4, 6));
 
     // ---- Máquinas ----
     public static final RegistryObject<Block> GENERATOR = register("generator",

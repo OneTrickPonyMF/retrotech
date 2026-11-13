@@ -1,6 +1,6 @@
 {
   "textures": {
-    "particle": "#cable"
+    "particle": "#side"
   },
   "elements": [
     {
@@ -22,7 +22,7 @@
             10,
             10
           ],
-          "texture": "#cable"
+          "texture": "#side"
         },
         "south": {
           "uv": [
@@ -31,7 +31,7 @@
             10,
             10
           ],
-          "texture": "#cable"
+          "texture": "#side"
         },
         "east": {
           "uv": [
@@ -40,7 +40,7 @@
             10,
             10
           ],
-          "texture": "#cable"
+          "texture": "#side"
         },
         "west": {
           "uv": [
@@ -49,7 +49,7 @@
             10,
             10
           ],
-          "texture": "#cable"
+          "texture": "#side"
         },
         "up": {
           "uv": [
@@ -58,7 +58,7 @@
             10,
             10
           ],
-          "texture": "#cable"
+          "texture": "#side"
         },
         "down": {
           "uv": [
@@ -67,7 +67,7 @@
             10,
             10
           ],
-          "texture": "#cable"
+          "texture": "#side"
         }
       }
     }

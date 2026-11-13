@@ -1,6 +1,7 @@
 {
-  "parent": "retrotech:block/cable_core",
+  "parent": "retrotech:block/cable_core_4",
   "textures": {
-    "cable": "retrotech:block/tin_cable"
+    "side": "retrotech:block/tin_cable",
+    "end": "retrotech:block/tin_cable_end"
   }
 }

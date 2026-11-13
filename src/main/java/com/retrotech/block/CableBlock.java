@@ -36,27 +36,29 @@ public class CableBlock extends Block {
         PROPERTIES.put(Direction.DOWN, BlockStateProperties.DOWN);
     }
 
-    private static final VoxelShape CORE = Block.box(6, 6, 6, 10, 10, 10);
-    private static final Map<Direction, VoxelShape> ARMS = new EnumMap<>(Direction.class);
-
-    static {
-        ARMS.put(Direction.NORTH, Block.box(6, 6, 0, 10, 10, 6));
-        ARMS.put(Direction.SOUTH, Block.box(6, 6, 10, 10, 10, 16));
-        ARMS.put(Direction.WEST, Block.box(0, 6, 6, 6, 10, 10));
-        ARMS.put(Direction.EAST, Block.box(10, 6, 6, 16, 10, 10));
-        ARMS.put(Direction.UP, Block.box(6, 10, 6, 10, 16, 10));
-        ARMS.put(Direction.DOWN, Block.box(6, 0, 6, 10, 6, 10));
-    }
-
-    private static final VoxelShape[] SHAPE_CACHE = new VoxelShape[64];
-
     private final int capacity;
     private final double lossPerBlock;
+    private final VoxelShape core;
+    private final Map<Direction, VoxelShape> arms = new EnumMap<>(Direction.class);
+    private final VoxelShape[] shapeCache = new VoxelShape[64];
 
-    public CableBlock(Properties properties, int capacity, double lossPerBlock) {
+    /**
+     * @param thickness grosor del cable en píxeles (4 = cable desnudo, 6 = cable aislado)
+     */
+    public CableBlock(Properties properties, int capacity, double lossPerBlock, int thickness) {
         super(properties);
         this.capacity = capacity;
         this.lossPerBlock = lossPerBlock;
+
+        double lo = 8 - thickness / 2.0, hi = 8 + thickness / 2.0;
+        core = Block.box(lo, lo, lo, hi, hi, hi);
+        arms.put(Direction.NORTH, Block.box(lo, lo, 0, hi, hi, lo));
+        arms.put(Direction.SOUTH, Block.box(lo, lo, hi, hi, hi, 16));
+        arms.put(Direction.WEST, Block.box(0, lo, lo, lo, hi, hi));
+        arms.put(Direction.EAST, Block.box(hi, lo, lo, 16, hi, hi));
+        arms.put(Direction.UP, Block.box(lo, hi, lo, hi, 16, hi));
+        arms.put(Direction.DOWN, Block.box(lo, 0, lo, hi, lo, hi));
+
         BlockState state = this.stateDefinition.any();
         for (BooleanProperty prop : PROPERTIES.values()) {
             state = state.setValue(prop, false);
@@ -107,13 +109,13 @@ public class CableBlock extends Block {
         for (Direction dir : Direction.values()) {
             if (state.getValue(PROPERTIES.get(dir))) index |= 1 << dir.ordinal();
         }
-        VoxelShape shape = SHAPE_CACHE[index];
+        VoxelShape shape = shapeCache[index];
         if (shape == null) {
-            shape = CORE;
+            shape = core;
             for (Direction dir : Direction.values()) {
-                if ((index & (1 << dir.ordinal())) != 0) shape = Shapes.or(shape, ARMS.get(dir));
+                if ((index & (1 << dir.ordinal())) != 0) shape = Shapes.or(shape, arms.get(dir));
             }
-            SHAPE_CACHE[index] = shape;
+            shapeCache[index] = shape;
         }
         return shape;
     }
