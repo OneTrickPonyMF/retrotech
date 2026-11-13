@@ -53,7 +53,7 @@ public class QuarryRenderer implements BlockEntityRenderer<QuarryBlockEntity> {
                     off, 0, off, BEAM, 1, BEAM);
         }
         // Cabeza del taladro
-        piece(blocks, beam, pose, buffers, level, origin, target, 0.3, 0.55, 0.3, 0.4, 0.45, 0.4);
+        piece(blocks, beam, pose, buffers, level, origin, target, 0.3, 0.55, 0.3, 0.4F, 0.45F, 0.4F);
     }
 
     private static void piece(BlockRenderDispatcher blocks, BlockState state, PoseStack pose,
