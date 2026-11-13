@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "TRT",
+    "TRT"
+  ],
+  "key": {
+    "C": {
+      "item": "retrotech:tin_cable"
+    },
+    "T": {
+      "tag": "forge:ingots/tin"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "result": {
+    "item": "retrotech:re_battery",
+    "count": 1
+  }
+}

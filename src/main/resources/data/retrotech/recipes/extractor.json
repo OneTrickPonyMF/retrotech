@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TMT",
+    " R "
+  ],
+  "key": {
+    "T": {
+      "item": "retrotech:treetap"
+    },
+    "M": {
+      "item": "retrotech:machine_casing"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "result": {
+    "item": "retrotech:extractor",
+    "count": 1
+  }
+}

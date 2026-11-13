@@ -3,13 +3,21 @@ package com.retrotech.registry;
 import com.retrotech.RetroTech;
 import com.retrotech.block.CableBlock;
 import com.retrotech.block.HorizontalMachineBlock;
+import com.retrotech.block.RubberLogBlock;
+import com.retrotech.block.RubberTreeGrower;
+import com.retrotech.block.SimpleMachineBlock;
 import com.retrotech.block.StorageMachineBlock;
 import com.retrotech.blockentity.BatBoxBlockEntity;
 import com.retrotech.blockentity.ElectricFurnaceBlockEntity;
 import com.retrotech.blockentity.GeneratorBlockEntity;
+import com.retrotech.blockentity.ProcessingMachineBlockEntity;
+import com.retrotech.blockentity.SolarPanelBlockEntity;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -55,6 +63,27 @@ public final class ModBlocks {
     public static final RegistryObject<Block> BATBOX = register("batbox",
             () -> new StorageMachineBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.5F)
                     .sound(SoundType.WOOD), BatBoxBlockEntity::new));
+
+    public static final RegistryObject<Block> MACERATOR = register("macerator",
+            () -> new HorizontalMachineBlock(litMachine(), ProcessingMachineBlockEntity::macerator));
+    public static final RegistryObject<Block> COMPRESSOR = register("compressor",
+            () -> new HorizontalMachineBlock(litMachine(), ProcessingMachineBlockEntity::compressor));
+    public static final RegistryObject<Block> EXTRACTOR = register("extractor",
+            () -> new HorizontalMachineBlock(litMachine(), ProcessingMachineBlockEntity::extractor));
+    public static final RegistryObject<Block> SOLAR_PANEL = register("solar_panel",
+            () -> new SimpleMachineBlock(machine(), SolarPanelBlockEntity::new));
+
+    // ---- Árbol de caucho ----
+    public static final RegistryObject<Block> RUBBER_LOG = register("rubber_log",
+            () -> new RubberLogBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_LOG).randomTicks()));
+    public static final RegistryObject<Block> RUBBER_LEAVES = register("rubber_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> RUBBER_SAPLING = register("rubber_sapling",
+            () -> new SaplingBlock(new RubberTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+
+    private static BlockBehaviour.Properties litMachine() {
+        return machine().lightLevel(s -> s.getValue(BlockStateProperties.LIT) ? 13 : 0);
+    }
 
     private static BlockBehaviour.Properties machine() {
         return BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3.5F, 6.0F)

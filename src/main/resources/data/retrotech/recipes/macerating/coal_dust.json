@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:macerating",
+  "ingredient": {
+    "item": "minecraft:coal"
+  },
+  "result": {
+    "item": "retrotech:coal_dust",
+    "count": 1
+  }
+}

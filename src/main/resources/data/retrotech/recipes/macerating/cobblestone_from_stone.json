@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:macerating",
+  "ingredient": {
+    "item": "minecraft:stone"
+  },
+  "result": {
+    "item": "minecraft:cobblestone",
+    "count": 1
+  }
+}

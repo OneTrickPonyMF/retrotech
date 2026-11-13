@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:macerating",
+  "ingredient": {
+    "tag": "forge:raw_materials/copper"
+  },
+  "result": {
+    "item": "retrotech:copper_dust",
+    "count": 2
+  }
+}

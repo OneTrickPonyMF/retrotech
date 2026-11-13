@@ -33,7 +33,8 @@ public class ElectricFurnaceBlockEntity extends MachineBlockEntity {
     @Override
     public void serverTick() {
         progressMax = OPERATION_TIME;
-        ItemStack input = items.getStackInSlot(0);
+        dischargeFrom(MachineKind.BATTERY);
+        ItemStack input = items.getStackInSlot(MachineKind.INPUT);
         ItemStack result = input.isEmpty() ? ItemStack.EMPTY : getResult(input);
         boolean working = false;
 
@@ -44,7 +45,7 @@ public class ElectricFurnaceBlockEntity extends MachineBlockEntity {
                 working = true;
                 if (progress >= OPERATION_TIME) {
                     progress = 0;
-                    items.extractItem(0, 1, false);
+                    items.extractItem(MachineKind.INPUT, 1, false);
                     output(result);
                 }
                 setChanged();
@@ -69,19 +70,19 @@ public class ElectricFurnaceBlockEntity extends MachineBlockEntity {
     }
 
     private boolean canOutput(ItemStack result) {
-        ItemStack out = items.getStackInSlot(1);
+        ItemStack out = items.getStackInSlot(MachineKind.OUTPUT);
         if (out.isEmpty()) return true;
         return ItemStack.isSameItemSameTags(out, result) && out.getCount() + result.getCount() <= out.getMaxStackSize();
     }
 
     private void output(ItemStack result) {
-        ItemStack out = items.getStackInSlot(1);
+        ItemStack out = items.getStackInSlot(MachineKind.OUTPUT);
         if (out.isEmpty()) {
-            items.setStackInSlot(1, result.copy());
+            items.setStackInSlot(MachineKind.OUTPUT, result.copy());
         } else {
             ItemStack grown = out.copy();
             grown.grow(result.getCount());
-            items.setStackInSlot(1, grown);
+            items.setStackInSlot(MachineKind.OUTPUT, grown);
         }
     }
 
@@ -97,7 +98,7 @@ public class ElectricFurnaceBlockEntity extends MachineBlockEntity {
 
     @Override
     protected boolean canAutomationExtract(int slot) {
-        return slot == 1;
+        return slot == MachineKind.OUTPUT || (slot == MachineKind.BATTERY && batteryIs(slot, false));
     }
 
     @Override

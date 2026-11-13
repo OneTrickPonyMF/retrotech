@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "retrotech:rubber_log"
+    }
+  ],
+  "result": {
+    "item": "minecraft:jungle_planks",
+    "count": 3
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "FFF",
+    "CMC",
+    " R "
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "C": {
+      "tag": "forge:cobblestone"
+    },
+    "M": {
+      "item": "retrotech:machine_casing"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "result": {
+    "item": "retrotech:macerator",
+    "count": 1
+  }
+}

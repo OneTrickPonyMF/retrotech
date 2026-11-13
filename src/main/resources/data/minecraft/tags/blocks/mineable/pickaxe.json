@@ -6,6 +6,10 @@
     "retrotech:tin_block",
     "retrotech:machine_casing",
     "retrotech:generator",
-    "retrotech:electric_furnace"
+    "retrotech:electric_furnace",
+    "retrotech:macerator",
+    "retrotech:compressor",
+    "retrotech:extractor",
+    "retrotech:solar_panel"
   ]
 }

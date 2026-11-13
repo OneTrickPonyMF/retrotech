@@ -19,6 +19,10 @@ public final class ClientSetup {
             MenuScreens.register(ModMenus.GENERATOR.get(), MachineScreen::new);
             MenuScreens.register(ModMenus.ELECTRIC_FURNACE.get(), MachineScreen::new);
             MenuScreens.register(ModMenus.BATBOX.get(), MachineScreen::new);
+            MenuScreens.register(ModMenus.MACERATOR.get(), MachineScreen::new);
+            MenuScreens.register(ModMenus.COMPRESSOR.get(), MachineScreen::new);
+            MenuScreens.register(ModMenus.EXTRACTOR.get(), MachineScreen::new);
+            MenuScreens.register(ModMenus.SOLAR_PANEL.get(), MachineScreen::new);
         });
     }
 }

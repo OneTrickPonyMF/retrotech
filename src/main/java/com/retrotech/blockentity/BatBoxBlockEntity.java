@@ -28,7 +28,14 @@ public class BatBoxBlockEntity extends MachineBlockEntity {
 
     @Override
     public void serverTick() {
+        chargeInto(0);      // slot de arriba: carga baterías
+        dischargeFrom(1);   // slot de abajo: vacía baterías en la BatBox
         pushEnergy(List.of(front()));
+    }
+
+    @Override
+    protected boolean canAutomationExtract(int slot) {
+        return slot == 0 ? batteryIs(0, true) : batteryIs(1, false);
     }
 
     @Override

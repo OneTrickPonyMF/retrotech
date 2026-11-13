@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#retrotech:has_rubber_trees",
+  "features": "retrotech:rubber_tree",
+  "step": "vegetal_decoration"
+}

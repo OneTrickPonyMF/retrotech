@@ -1,0 +1,154 @@
+{
+  "variants": {
+    "axis=x,facing=north,resin=none": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=east,resin=none": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=south,resin=none": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=west,resin=none": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=north,resin=dry": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=east,resin=dry": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=south,resin=dry": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=west,resin=dry": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=north,resin=wet": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=east,resin=wet": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=south,resin=wet": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,facing=west,resin=wet": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,facing=north,resin=none": {
+      "model": "retrotech:block/rubber_log"
+    },
+    "axis=y,facing=east,resin=none": {
+      "model": "retrotech:block/rubber_log"
+    },
+    "axis=y,facing=south,resin=none": {
+      "model": "retrotech:block/rubber_log"
+    },
+    "axis=y,facing=west,resin=none": {
+      "model": "retrotech:block/rubber_log"
+    },
+    "axis=y,facing=north,resin=dry": {
+      "model": "retrotech:block/rubber_log_dry"
+    },
+    "axis=y,facing=east,resin=dry": {
+      "model": "retrotech:block/rubber_log_dry",
+      "y": 90
+    },
+    "axis=y,facing=south,resin=dry": {
+      "model": "retrotech:block/rubber_log_dry",
+      "y": 180
+    },
+    "axis=y,facing=west,resin=dry": {
+      "model": "retrotech:block/rubber_log_dry",
+      "y": 270
+    },
+    "axis=y,facing=north,resin=wet": {
+      "model": "retrotech:block/rubber_log_wet"
+    },
+    "axis=y,facing=east,resin=wet": {
+      "model": "retrotech:block/rubber_log_wet",
+      "y": 90
+    },
+    "axis=y,facing=south,resin=wet": {
+      "model": "retrotech:block/rubber_log_wet",
+      "y": 180
+    },
+    "axis=y,facing=west,resin=wet": {
+      "model": "retrotech:block/rubber_log_wet",
+      "y": 270
+    },
+    "axis=z,facing=north,resin=none": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=east,resin=none": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=south,resin=none": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=west,resin=none": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=north,resin=dry": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=east,resin=dry": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=south,resin=dry": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=west,resin=dry": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=north,resin=wet": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=east,resin=wet": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=south,resin=wet": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    },
+    "axis=z,facing=west,resin=wet": {
+      "model": "retrotech:block/rubber_log_horizontal",
+      "x": 90
+    }
+  }
+}

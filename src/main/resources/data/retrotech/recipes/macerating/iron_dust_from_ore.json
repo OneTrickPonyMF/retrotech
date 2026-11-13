@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:macerating",
+  "ingredient": {
+    "tag": "forge:ores/iron"
+  },
+  "result": {
+    "item": "retrotech:iron_dust",
+    "count": 2
+  }
+}

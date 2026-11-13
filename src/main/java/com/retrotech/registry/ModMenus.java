@@ -24,6 +24,22 @@ public final class ModMenus {
             () -> IForgeMenuType.create((id, inv, buf) ->
                     MachineMenu.client(ModMenus.BATBOX.get(), MachineKind.BATBOX, id, inv)));
 
+    public static final RegistryObject<MenuType<MachineMenu>> MACERATOR = MENUS.register("macerator",
+            () -> IForgeMenuType.create((id, inv, buf) ->
+                    MachineMenu.client(ModMenus.MACERATOR.get(), MachineKind.MACERATOR, id, inv)));
+
+    public static final RegistryObject<MenuType<MachineMenu>> COMPRESSOR = MENUS.register("compressor",
+            () -> IForgeMenuType.create((id, inv, buf) ->
+                    MachineMenu.client(ModMenus.COMPRESSOR.get(), MachineKind.COMPRESSOR, id, inv)));
+
+    public static final RegistryObject<MenuType<MachineMenu>> EXTRACTOR = MENUS.register("extractor",
+            () -> IForgeMenuType.create((id, inv, buf) ->
+                    MachineMenu.client(ModMenus.EXTRACTOR.get(), MachineKind.EXTRACTOR, id, inv)));
+
+    public static final RegistryObject<MenuType<MachineMenu>> SOLAR_PANEL = MENUS.register("solar_panel",
+            () -> IForgeMenuType.create((id, inv, buf) ->
+                    MachineMenu.client(ModMenus.SOLAR_PANEL.get(), MachineKind.SOLAR_PANEL, id, inv)));
+
     private ModMenus() {
     }
 }

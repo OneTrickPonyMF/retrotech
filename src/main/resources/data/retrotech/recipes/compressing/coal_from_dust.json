@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:compressing",
+  "ingredient": {
+    "item": "retrotech:coal_dust"
+  },
+  "result": {
+    "item": "minecraft:coal",
+    "count": 1
+  }
+}

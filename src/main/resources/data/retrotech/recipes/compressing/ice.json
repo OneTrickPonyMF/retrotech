@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:compressing",
+  "ingredient": {
+    "item": "minecraft:snow_block"
+  },
+  "result": {
+    "item": "minecraft:ice",
+    "count": 1
+  }
+}

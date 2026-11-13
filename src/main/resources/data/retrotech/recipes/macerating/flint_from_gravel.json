@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:macerating",
+  "ingredient": {
+    "item": "minecraft:gravel"
+  },
+  "result": {
+    "item": "minecraft:flint",
+    "count": 1
+  }
+}

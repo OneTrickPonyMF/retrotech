@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "retrotech:block/rubber_log",
+    "north": "retrotech:block/rubber_log_resin_wet",
+    "south": "retrotech:block/rubber_log",
+    "east": "retrotech:block/rubber_log",
+    "west": "retrotech:block/rubber_log",
+    "up": "retrotech:block/rubber_log_top",
+    "down": "retrotech:block/rubber_log_top"
+  }
+}

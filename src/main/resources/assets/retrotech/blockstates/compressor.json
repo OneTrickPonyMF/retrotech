@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "retrotech:block/compressor"
+    },
+    "facing=north,lit=true": {
+      "model": "retrotech:block/compressor_on"
+    },
+    "facing=east,lit=false": {
+      "model": "retrotech:block/compressor",
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "retrotech:block/compressor_on",
+      "y": 90
+    },
+    "facing=south,lit=false": {
+      "model": "retrotech:block/compressor",
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "retrotech:block/compressor_on",
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "retrotech:block/compressor",
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "retrotech:block/compressor_on",
+      "y": 270
+    }
+  }
+}

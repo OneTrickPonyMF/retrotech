@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "retrotech:batbox"
+    "retrotech:batbox",
+    "retrotech:rubber_log"
   ]
 }

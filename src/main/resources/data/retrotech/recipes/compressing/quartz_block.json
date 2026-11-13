@@ -1,0 +1,11 @@
+{
+  "type": "retrotech:compressing",
+  "ingredient": {
+    "item": "minecraft:quartz"
+  },
+  "count": 4,
+  "result": {
+    "item": "minecraft:quartz_block",
+    "count": 1
+  }
+}

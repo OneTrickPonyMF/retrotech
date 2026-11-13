@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:macerating",
+  "ingredient": {
+    "tag": "minecraft:wool"
+  },
+  "result": {
+    "item": "minecraft:string",
+    "count": 2
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:extracting",
+  "ingredient": {
+    "item": "minecraft:slime_block"
+  },
+  "result": {
+    "item": "minecraft:slime_ball",
+    "count": 9
+  }
+}

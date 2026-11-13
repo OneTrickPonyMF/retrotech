@@ -5,6 +5,7 @@ import com.retrotech.registry.ModBlocks;
 import com.retrotech.registry.ModCreativeTabs;
 import com.retrotech.registry.ModItems;
 import com.retrotech.registry.ModMenus;
+import com.retrotech.registry.ModRecipes;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -20,5 +21,7 @@ public class RetroTech {
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
         ModMenus.MENUS.register(modBus);
         ModCreativeTabs.TABS.register(modBus);
+        ModRecipes.TYPES.register(modBus);
+        ModRecipes.SERIALIZERS.register(modBus);
     }
 }

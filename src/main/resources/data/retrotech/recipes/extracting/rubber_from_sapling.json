@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:extracting",
+  "ingredient": {
+    "item": "retrotech:rubber_sapling"
+  },
+  "result": {
+    "item": "retrotech:rubber",
+    "count": 1
+  }
+}

@@ -12,5 +12,22 @@
   "block.retrotech.batbox": "BatBox",
   "item.retrotech.raw_tin": "Estaño en bruto",
   "item.retrotech.tin_ingot": "Lingote de estaño",
-  "gui.retrotech.energy": "%s / %s EU"
+  "gui.retrotech.energy": "%s / %s EU",
+  "block.retrotech.macerator": "Macerador",
+  "block.retrotech.compressor": "Compresor",
+  "block.retrotech.extractor": "Extractor",
+  "block.retrotech.solar_panel": "Panel solar",
+  "block.retrotech.rubber_log": "Madera de caucho",
+  "block.retrotech.rubber_leaves": "Hojas de caucho",
+  "block.retrotech.rubber_sapling": "Brote de caucho",
+  "item.retrotech.tin_dust": "Polvo de estaño",
+  "item.retrotech.copper_dust": "Polvo de cobre",
+  "item.retrotech.iron_dust": "Polvo de hierro",
+  "item.retrotech.gold_dust": "Polvo de oro",
+  "item.retrotech.coal_dust": "Polvo de carbón",
+  "item.retrotech.sticky_resin": "Resina pegajosa",
+  "item.retrotech.rubber": "Caucho",
+  "item.retrotech.treetap": "Grifo",
+  "item.retrotech.re_battery": "Batería recargable",
+  "tooltip.retrotech.energy": "%s / %s EU"
 }

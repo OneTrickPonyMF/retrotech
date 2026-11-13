@@ -12,5 +12,22 @@
   "block.retrotech.batbox": "BatBox",
   "item.retrotech.raw_tin": "Raw Tin",
   "item.retrotech.tin_ingot": "Tin Ingot",
-  "gui.retrotech.energy": "%s / %s EU"
+  "gui.retrotech.energy": "%s / %s EU",
+  "block.retrotech.macerator": "Macerator",
+  "block.retrotech.compressor": "Compressor",
+  "block.retrotech.extractor": "Extractor",
+  "block.retrotech.solar_panel": "Solar Panel",
+  "block.retrotech.rubber_log": "Rubber Wood",
+  "block.retrotech.rubber_leaves": "Rubber Leaves",
+  "block.retrotech.rubber_sapling": "Rubber Sapling",
+  "item.retrotech.tin_dust": "Tin Dust",
+  "item.retrotech.copper_dust": "Copper Dust",
+  "item.retrotech.iron_dust": "Iron Dust",
+  "item.retrotech.gold_dust": "Gold Dust",
+  "item.retrotech.coal_dust": "Coal Dust",
+  "item.retrotech.sticky_resin": "Sticky Resin",
+  "item.retrotech.rubber": "Rubber",
+  "item.retrotech.treetap": "Treetap",
+  "item.retrotech.re_battery": "RE-Battery",
+  "tooltip.retrotech.energy": "%s / %s EU"
 }

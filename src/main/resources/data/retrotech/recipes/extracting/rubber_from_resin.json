@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:extracting",
+  "ingredient": {
+    "item": "retrotech:sticky_resin"
+  },
+  "result": {
+    "item": "retrotech:rubber",
+    "count": 3
+  }
+}

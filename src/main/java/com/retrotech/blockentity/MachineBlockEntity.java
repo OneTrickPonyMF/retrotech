@@ -11,6 +11,8 @@ import com.retrotech.menu.MachineMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
@@ -131,6 +133,37 @@ public abstract class MachineBlockEntity extends BlockEntity implements MenuProv
         energy.consume(sent);
     }
 
+    /** Saca energía de la batería de un slot para llenar la máquina. */
+    protected void dischargeFrom(int slot) {
+        if (energy.isFull()) return;
+        ItemStack stack = items.getStackInSlot(slot);
+        if (stack.isEmpty()) return;
+        stack.getCapability(ForgeCapabilities.ENERGY).ifPresent(battery -> {
+            int room = energy.getMaxEnergyStored() - energy.getEnergyStored();
+            int got = battery.extractEnergy(Math.min(room, tier.maxPacket), false);
+            if (got > 0) energy.generate(got);
+        });
+    }
+
+    /** Carga la batería de un slot con la energía de la máquina. */
+    protected void chargeInto(int slot) {
+        if (energy.getEnergyStored() <= 0) return;
+        ItemStack stack = items.getStackInSlot(slot);
+        if (stack.isEmpty()) return;
+        stack.getCapability(ForgeCapabilities.ENERGY).ifPresent(battery -> {
+            int given = battery.receiveEnergy(Math.min(energy.getEnergyStored(), tier.maxPacket), false);
+            if (given > 0) energy.consume(given);
+        });
+    }
+
+    /** ¿La batería del slot está llena (true) o vacía (false)? Si no es batería, devuelve false. */
+    protected boolean batteryIs(int slot, boolean full) {
+        ItemStack stack = items.getStackInSlot(slot);
+        return stack.getCapability(ForgeCapabilities.ENERGY)
+                .map(b -> full ? b.getEnergyStored() >= b.getMaxEnergyStored() : b.getEnergyStored() <= 0)
+                .orElse(false);
+    }
+
     /** Cambia el estado encendido/apagado (textura del frente) solo si hace falta. */
     protected void setLit(boolean lit) {
         if (level == null) return;
@@ -217,7 +250,14 @@ public abstract class MachineBlockEntity extends BlockEntity implements MenuProv
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        items.deserializeNBT(tag.getCompound("Items"));
+        // Carga manual: así, si una máquina gana slots nuevos en una actualización, los mundos viejos no se rompen.
+        ListTag list = tag.getCompound("Items").getList("Items", Tag.TAG_COMPOUND);
+        for (int i = 0; i < items.getSlots(); i++) items.setStackInSlot(i, ItemStack.EMPTY);
+        for (int i = 0; i < list.size(); i++) {
+            CompoundTag entry = list.getCompound(i);
+            int slot = entry.getInt("Slot");
+            if (slot >= 0 && slot < items.getSlots()) items.setStackInSlot(slot, ItemStack.of(entry));
+        }
         energy.setEnergy(tag.getInt("Energy"));
         progress = tag.getInt("Progress");
         progressMax = tag.getInt("ProgressMax");

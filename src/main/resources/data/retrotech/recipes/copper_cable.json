@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "WWW",
+    "RRR",
     "CCC",
-    "WWW"
+    "RRR"
   ],
   "key": {
-    "W": {
-      "tag": "minecraft:wool"
+    "R": {
+      "tag": "forge:rubber"
     },
     "C": {
       "tag": "forge:ingots/copper"

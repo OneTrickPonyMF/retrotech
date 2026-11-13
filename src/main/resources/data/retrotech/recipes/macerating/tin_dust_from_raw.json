@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:macerating",
+  "ingredient": {
+    "tag": "forge:raw_materials/tin"
+  },
+  "result": {
+    "item": "retrotech:tin_dust",
+    "count": 2
+  }
+}

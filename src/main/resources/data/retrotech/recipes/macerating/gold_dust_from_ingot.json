@@ -1,0 +1,10 @@
+{
+  "type": "retrotech:macerating",
+  "ingredient": {
+    "tag": "forge:ingots/gold"
+  },
+  "result": {
+    "item": "retrotech:gold_dust",
+    "count": 1
+  }
+}

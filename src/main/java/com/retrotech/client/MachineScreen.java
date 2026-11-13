@@ -82,7 +82,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
                 int h = Math.max(1, progress * size / max);
                 g.fill(fx, fy + size - h, fx + size, fy + size, FLAME);
             }
-        } else if (kind == MachineKind.ELECTRIC_FURNACE) {
+        } else if (kind.isProcessing()) {
             // Flecha de progreso entre entrada y salida
             int ax = x + 79, ay = y + 35, w = 24, h = 16;
             g.fill(ax, ay + 5, ax + w - 6, ay + h - 5, SLOT);
@@ -98,7 +98,32 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
                 }
                 g.disableScissor();
             }
+        } else if (kind == MachineKind.SOLAR_PANEL) {
+            // Sol: amarillo cuando genera, gris de noche o con lluvia
+            int sx = x + 72, sy = y + 30, size = 24;
+            int color = progress > 0 ? 0xFFFFD84A : 0xFF6B6B6B;
+            g.fill(sx + 4, sy, sx + size - 4, sy + size, color);
+            g.fill(sx, sy + 4, sx + size, sy + size - 4, color);
+            g.fill(sx + 2, sy + 2, sx + size - 2, sy + size - 2, color);
         }
+
+        // Marca de rayo al lado de los slots de batería
+        for (int i = 0; i < menu.getMachineSlots(); i++) {
+            if (kind.isBatterySlot(i)) {
+                Slot slot = menu.slots.get(i);
+                drawBolt(g, x + slot.x - 12, y + slot.y + 3);
+            }
+        }
+    }
+
+    private static void drawBolt(GuiGraphics g, int bx, int by) {
+        int c = 0xFFE0C020;
+        g.fill(bx + 3, by, bx + 6, by + 1, c);
+        g.fill(bx + 2, by + 1, bx + 5, by + 3, c);
+        g.fill(bx + 1, by + 3, bx + 7, by + 5, c);
+        g.fill(bx + 3, by + 5, bx + 6, by + 7, c);
+        g.fill(bx + 2, by + 7, bx + 5, by + 9, c);
+        g.fill(bx + 2, by + 9, bx + 3, by + 10, c);
     }
 
     private static void drawSlot(GuiGraphics g, int sx, int sy) {

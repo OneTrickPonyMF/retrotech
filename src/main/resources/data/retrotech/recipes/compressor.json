@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "S S",
+    "SMS",
+    " R "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "M": {
+      "item": "retrotech:machine_casing"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "result": {
+    "item": "retrotech:compressor",
+    "count": 1
+  }
+}

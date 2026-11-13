@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GGG",
+    "DRD",
+    "CMC"
+  ],
+  "key": {
+    "G": {
+      "tag": "forge:glass"
+    },
+    "D": {
+      "tag": "forge:dusts/coal"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "C": {
+      "item": "retrotech:tin_cable"
+    },
+    "M": {
+      "item": "retrotech:generator"
+    }
+  },
+  "result": {
+    "item": "retrotech:solar_panel",
+    "count": 1
+  }
+}
