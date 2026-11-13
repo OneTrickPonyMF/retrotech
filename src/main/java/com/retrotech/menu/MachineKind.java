@@ -20,7 +20,10 @@ public enum MachineKind {
     COMPRESSOR(new int[][]{{56, 17}, {116, 35}, {56, 53}}),
     EXTRACTOR(new int[][]{{56, 17}, {116, 35}, {56, 53}}),
     BATBOX(new int[][]{{56, 17}, {56, 53}}),
-    SOLAR_PANEL(new int[0][]);
+    SOLAR_PANEL(new int[0][]),
+    REDSTONE_ENGINE(new int[0][]),
+    STIRLING_ENGINE(new int[][]{{80, 53}}),
+    QUARRY(new int[0][]);
 
     public static final int INPUT = 0;
     public static final int OUTPUT = 1;
@@ -49,6 +52,11 @@ public enum MachineKind {
         return this == ELECTRIC_FURNACE || this == MACERATOR || this == COMPRESSOR || this == EXTRACTOR;
     }
 
+    /** Máquinas que queman combustible sólido en su único slot. */
+    public boolean usesFuel() {
+        return this == GENERATOR || this == STIRLING_ENGINE;
+    }
+
     /** Slots donde va una batería. */
     public boolean isBatterySlot(int slot) {
         return (isProcessing() && slot == BATTERY) || this == BATBOX;
@@ -61,7 +69,7 @@ public enum MachineKind {
     public boolean isItemValid(int slot, ItemStack stack) {
         if (isBatterySlot(slot)) return holdsEnergy(stack);
         if (isProcessing()) return slot == INPUT;
-        if (this == GENERATOR) return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
+        if (usesFuel()) return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0;
         return false;
     }
 

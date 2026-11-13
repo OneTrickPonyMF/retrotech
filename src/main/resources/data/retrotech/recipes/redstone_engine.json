@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PPP",
+    " G ",
+    "gpg"
+  ],
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "G": {
+      "tag": "forge:glass"
+    },
+    "g": {
+      "tag": "forge:gears/wood"
+    },
+    "p": {
+      "item": "minecraft:piston"
+    }
+  },
+  "result": {
+    "item": "retrotech:redstone_engine",
+    "count": 1
+  }
+}

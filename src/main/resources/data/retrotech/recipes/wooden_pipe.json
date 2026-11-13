@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MGM"
+  ],
+  "key": {
+    "M": {
+      "tag": "minecraft:planks"
+    },
+    "G": {
+      "tag": "forge:glass"
+    }
+  },
+  "result": {
+    "item": "retrotech:wooden_pipe",
+    "count": 8
+  }
+}

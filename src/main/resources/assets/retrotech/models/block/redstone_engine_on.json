@@ -1,0 +1,9 @@
+{
+  "parent": "retrotech:block/engine",
+  "textures": {
+    "base": "retrotech:block/engine_wood",
+    "plate": "retrotech:block/engine_wood",
+    "nozzle": "retrotech:block/engine_nozzle",
+    "chamber": "retrotech:block/engine_chamber_on"
+  }
+}

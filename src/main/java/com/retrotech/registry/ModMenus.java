@@ -40,6 +40,18 @@ public final class ModMenus {
             () -> IForgeMenuType.create((id, inv, buf) ->
                     MachineMenu.client(ModMenus.SOLAR_PANEL.get(), MachineKind.SOLAR_PANEL, id, inv)));
 
+    public static final RegistryObject<MenuType<MachineMenu>> REDSTONE_ENGINE = MENUS.register("redstone_engine",
+            () -> IForgeMenuType.create((id, inv, buf) ->
+                    MachineMenu.client(ModMenus.REDSTONE_ENGINE.get(), MachineKind.REDSTONE_ENGINE, id, inv)));
+
+    public static final RegistryObject<MenuType<MachineMenu>> STIRLING_ENGINE = MENUS.register("stirling_engine",
+            () -> IForgeMenuType.create((id, inv, buf) ->
+                    MachineMenu.client(ModMenus.STIRLING_ENGINE.get(), MachineKind.STIRLING_ENGINE, id, inv)));
+
+    public static final RegistryObject<MenuType<MachineMenu>> QUARRY = MENUS.register("quarry",
+            () -> IForgeMenuType.create((id, inv, buf) ->
+                    MachineMenu.client(ModMenus.QUARRY.get(), MachineKind.QUARRY, id, inv)));
+
     private ModMenus() {
     }
 }

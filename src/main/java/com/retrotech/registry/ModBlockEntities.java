@@ -4,7 +4,10 @@ import com.retrotech.RetroTech;
 import com.retrotech.blockentity.BatBoxBlockEntity;
 import com.retrotech.blockentity.ElectricFurnaceBlockEntity;
 import com.retrotech.blockentity.GeneratorBlockEntity;
+import com.retrotech.blockentity.EngineBlockEntity;
 import com.retrotech.blockentity.ProcessingMachineBlockEntity;
+import com.retrotech.blockentity.QuarryBlockEntity;
+import com.retrotech.pipe.PipeBlockEntity;
 import com.retrotech.blockentity.SolarPanelBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -47,6 +50,25 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<SolarPanelBlockEntity>> SOLAR_PANEL = BLOCK_ENTITIES.register(
             "solar_panel", () -> BlockEntityType.Builder.of(SolarPanelBlockEntity::new,
                     ModBlocks.SOLAR_PANEL.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<EngineBlockEntity>> REDSTONE_ENGINE = BLOCK_ENTITIES.register(
+            "redstone_engine", () -> BlockEntityType.Builder.of(EngineBlockEntity::redstone,
+                    ModBlocks.REDSTONE_ENGINE.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<EngineBlockEntity>> STIRLING_ENGINE = BLOCK_ENTITIES.register(
+            "stirling_engine", () -> BlockEntityType.Builder.of(EngineBlockEntity::stirling,
+                    ModBlocks.STIRLING_ENGINE.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<QuarryBlockEntity>> QUARRY = BLOCK_ENTITIES.register(
+            "quarry", () -> BlockEntityType.Builder.of(QuarryBlockEntity::new, ModBlocks.QUARRY.get()).build(null));
+
+    @SuppressWarnings("DataFlowIssue")
+    public static final RegistryObject<BlockEntityType<PipeBlockEntity>> PIPE = BLOCK_ENTITIES.register(
+            "pipe", () -> BlockEntityType.Builder.of(PipeBlockEntity::new, ModBlocks.WOODEN_PIPE.get(),
+                    ModBlocks.COBBLESTONE_PIPE.get(), ModBlocks.STONE_PIPE.get(), ModBlocks.GOLD_PIPE.get()).build(null));
 
     private ModBlockEntities() {
     }

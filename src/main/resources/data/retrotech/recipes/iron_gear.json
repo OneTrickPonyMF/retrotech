@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    "IGI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "G": {
+      "tag": "forge:gears/stone"
+    }
+  },
+  "result": {
+    "item": "retrotech:iron_gear",
+    "count": 1
+  }
+}

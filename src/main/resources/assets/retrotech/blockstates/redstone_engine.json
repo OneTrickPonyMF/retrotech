@@ -1,0 +1,56 @@
+{
+  "variants": {
+    "facing=up,lit=false": {
+      "model": "retrotech:block/redstone_engine"
+    },
+    "facing=up,lit=true": {
+      "model": "retrotech:block/redstone_engine_on"
+    },
+    "facing=down,lit=false": {
+      "model": "retrotech:block/redstone_engine",
+      "x": 180
+    },
+    "facing=down,lit=true": {
+      "model": "retrotech:block/redstone_engine_on",
+      "x": 180
+    },
+    "facing=north,lit=false": {
+      "model": "retrotech:block/redstone_engine",
+      "x": 90
+    },
+    "facing=north,lit=true": {
+      "model": "retrotech:block/redstone_engine_on",
+      "x": 90
+    },
+    "facing=south,lit=false": {
+      "model": "retrotech:block/redstone_engine",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "retrotech:block/redstone_engine_on",
+      "x": 90,
+      "y": 180
+    },
+    "facing=west,lit=false": {
+      "model": "retrotech:block/redstone_engine",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "retrotech:block/redstone_engine_on",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,lit=false": {
+      "model": "retrotech:block/redstone_engine",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "retrotech:block/redstone_engine_on",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

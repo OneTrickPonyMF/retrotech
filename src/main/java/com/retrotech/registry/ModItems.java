@@ -30,6 +30,13 @@ public final class ModItems {
     public static final RegistryObject<BatteryItem> RE_BATTERY = ITEMS.register("re_battery",
             () -> new BatteryItem(new Item.Properties(), 10000, 32));
 
+    // ---- Engranajes (BuildCraft) ----
+    public static final RegistryObject<Item> WOOD_GEAR = simple("wood_gear");
+    public static final RegistryObject<Item> STONE_GEAR = simple("stone_gear");
+    public static final RegistryObject<Item> IRON_GEAR = simple("iron_gear");
+    public static final RegistryObject<Item> GOLD_GEAR = simple("gold_gear");
+    public static final RegistryObject<Item> DIAMOND_GEAR = simple("diamond_gear");
+
     private static RegistryObject<Item> simple(String name) {
         return ITEMS.register(name, () -> new Item(new Item.Properties()));
     }

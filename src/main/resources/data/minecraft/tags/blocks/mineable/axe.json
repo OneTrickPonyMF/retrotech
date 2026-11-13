@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "retrotech:batbox",
-    "retrotech:rubber_log"
+    "retrotech:rubber_log",
+    "retrotech:redstone_engine"
   ]
 }

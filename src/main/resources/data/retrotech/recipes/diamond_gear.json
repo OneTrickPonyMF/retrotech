@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    "IGI",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:gems/diamond"
+    },
+    "G": {
+      "tag": "forge:gears/gold"
+    }
+  },
+  "result": {
+    "item": "retrotech:diamond_gear",
+    "count": 1
+  }
+}

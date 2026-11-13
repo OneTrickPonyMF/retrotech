@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IRI",
+    "GIG",
+    "DPD"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:gears/iron"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "G": {
+      "tag": "forge:gears/gold"
+    },
+    "D": {
+      "tag": "forge:gears/diamond"
+    },
+    "P": {
+      "item": "minecraft:diamond_pickaxe"
+    }
+  },
+  "result": {
+    "item": "retrotech:quarry",
+    "count": 1
+  }
+}

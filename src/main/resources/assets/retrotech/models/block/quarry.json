@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "retrotech:block/quarry_top",
+    "side": "retrotech:block/quarry_side",
+    "front": "retrotech:block/quarry_front"
+  }
+}

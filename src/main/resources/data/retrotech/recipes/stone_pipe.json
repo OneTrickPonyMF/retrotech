@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MGM"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:stone"
+    },
+    "G": {
+      "tag": "forge:glass"
+    }
+  },
+  "result": {
+    "item": "retrotech:stone_pipe",
+    "count": 8
+  }
+}

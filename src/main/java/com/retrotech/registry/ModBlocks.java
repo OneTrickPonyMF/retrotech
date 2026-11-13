@@ -2,6 +2,7 @@ package com.retrotech.registry;
 
 import com.retrotech.RetroTech;
 import com.retrotech.block.CableBlock;
+import com.retrotech.block.EngineBlock;
 import com.retrotech.block.HorizontalMachineBlock;
 import com.retrotech.block.RubberLogBlock;
 import com.retrotech.block.RubberTreeGrower;
@@ -10,7 +11,11 @@ import com.retrotech.block.StorageMachineBlock;
 import com.retrotech.blockentity.BatBoxBlockEntity;
 import com.retrotech.blockentity.ElectricFurnaceBlockEntity;
 import com.retrotech.blockentity.GeneratorBlockEntity;
+import com.retrotech.blockentity.EngineBlockEntity;
 import com.retrotech.blockentity.ProcessingMachineBlockEntity;
+import com.retrotech.blockentity.QuarryBlockEntity;
+import com.retrotech.pipe.PipeBlock;
+import com.retrotech.pipe.PipeType;
 import com.retrotech.blockentity.SolarPanelBlockEntity;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -80,6 +85,34 @@ public final class ModBlocks {
             () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
     public static final RegistryObject<Block> RUBBER_SAPLING = register("rubber_sapling",
             () -> new SaplingBlock(new RubberTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+
+    // ---- BuildCraft: motores, quarry y tuberías ----
+    public static final RegistryObject<Block> REDSTONE_ENGINE = register("redstone_engine",
+            () -> new EngineBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.5F)
+                    .sound(SoundType.WOOD).noOcclusion(), EngineBlockEntity::redstone));
+    public static final RegistryObject<Block> STIRLING_ENGINE = register("stirling_engine",
+            () -> new EngineBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2.5F)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE).noOcclusion(), EngineBlockEntity::stirling));
+    public static final RegistryObject<Block> QUARRY = register("quarry",
+            () -> new HorizontalMachineBlock(litMachine(), QuarryBlockEntity::new));
+
+    public static final RegistryObject<Block> WOODEN_PIPE = register("wooden_pipe", () -> pipe(PipeType.WOODEN));
+    public static final RegistryObject<Block> COBBLESTONE_PIPE = register("cobblestone_pipe", () -> pipe(PipeType.COBBLESTONE));
+    public static final RegistryObject<Block> STONE_PIPE = register("stone_pipe", () -> pipe(PipeType.STONE));
+    public static final RegistryObject<Block> GOLD_PIPE = register("gold_pipe", () -> pipe(PipeType.GOLD));
+
+    /** Bloques que coloca la quarry (sin item). */
+    public static final RegistryObject<Block> QUARRY_FRAME = BLOCKS.register("quarry_frame",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(0.5F)
+                    .sound(SoundType.METAL).noOcclusion()));
+    public static final RegistryObject<Block> QUARRY_DRILL = BLOCKS.register("quarry_drill",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(-1.0F, 3600000.0F)
+                    .noLootTable().noOcclusion()));
+
+    private static PipeBlock pipe(PipeType type) {
+        return new PipeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.25F)
+                .sound(SoundType.GLASS).noOcclusion(), type);
+    }
 
     private static BlockBehaviour.Properties litMachine() {
         return machine().lightLevel(s -> s.getValue(BlockStateProperties.LIT) ? 13 : 0);

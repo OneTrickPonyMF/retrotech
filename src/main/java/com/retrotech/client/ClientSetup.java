@@ -1,7 +1,9 @@
 package com.retrotech.client;
 
 import com.retrotech.RetroTech;
+import com.retrotech.registry.ModBlockEntities;
 import com.retrotech.registry.ModMenus;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,6 +25,15 @@ public final class ClientSetup {
             MenuScreens.register(ModMenus.COMPRESSOR.get(), MachineScreen::new);
             MenuScreens.register(ModMenus.EXTRACTOR.get(), MachineScreen::new);
             MenuScreens.register(ModMenus.SOLAR_PANEL.get(), MachineScreen::new);
+            MenuScreens.register(ModMenus.REDSTONE_ENGINE.get(), MachineScreen::new);
+            MenuScreens.register(ModMenus.STIRLING_ENGINE.get(), MachineScreen::new);
+            MenuScreens.register(ModMenus.QUARRY.get(), MachineScreen::new);
         });
+    }
+
+    @SubscribeEvent
+    public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.PIPE.get(), PipeRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.QUARRY.get(), QuarryRenderer::new);
     }
 }

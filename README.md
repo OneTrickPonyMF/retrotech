@@ -24,7 +24,7 @@ Hay niveles de voltaje como en IC2: si una fuente de más voltaje alimenta una m
 | Cable de estaño | 32 EU/t, pérdida 0,025 EU por bloque |
 | Cable de cobre | 128 EU/t, pérdida 0,2 EU por bloque |
 | Cable de oro | 512 EU/t, pérdida 0,4 EU por bloque |
-| Macerador | 2 EU/t, 300 ticks. Mineral o mineral en bruto → 2 polvos. También piedra, grava, huesos, etc. |
+| Pulverizador | 2 EU/t, 300 ticks. Mineral o mineral en bruto → 2 polvos. También piedra, grava, huesos, etc. |
 | Compresor | 2 EU/t, 300 ticks. 4 arena → arenisca, hielo compacto, etc. |
 | Extractor | 2 EU/t, 300 ticks. Resina → 3 caucho. |
 | Panel solar | 1 EU/t de día, con cielo despejado y sin lluvia. |
@@ -40,7 +40,7 @@ Hay niveles de voltaje como en IC2: si una fuente de más voltaje alimenta una m
 - Horno eléctrico: cable de estaño arriba, redstone–horno–redstone en el medio, carcasa abajo.
 - BatBox: madera–cable–madera / 3 redstone / 3 maderas.
 
-Las recetas del macerador, compresor y extractor están en `data/retrotech/recipes/<máquina>/` y se pueden agregar más con datapacks.
+Las recetas del pulverizador, compresor y extractor están en `data/retrotech/recipes/<máquina>/` y se pueden agregar más con datapacks.
 
 Las tolvas pueden cargar combustible en el generador, cargar y vaciar el horno eléctrico.
 

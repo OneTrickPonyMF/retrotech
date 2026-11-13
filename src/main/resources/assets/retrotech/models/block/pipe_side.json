@@ -1,0 +1,70 @@
+{
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "#pipe"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        4,
+        0
+      ],
+      "to": [
+        12,
+        12,
+        4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            4,
+            12,
+            12
+          ],
+          "texture": "#pipe",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0,
+            4,
+            4,
+            12
+          ],
+          "texture": "#pipe"
+        },
+        "west": {
+          "uv": [
+            0,
+            4,
+            4,
+            12
+          ],
+          "texture": "#pipe"
+        },
+        "up": {
+          "uv": [
+            0,
+            4,
+            4,
+            12
+          ],
+          "texture": "#pipe",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            0,
+            4,
+            4,
+            12
+          ],
+          "texture": "#pipe",
+          "rotation": 90
+        }
+      }
+    }
+  ]
+}

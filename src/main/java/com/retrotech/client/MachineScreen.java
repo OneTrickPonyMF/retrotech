@@ -74,7 +74,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         int progress = menu.getProgress();
         int max = menu.getProgressMax();
 
-        if (kind == MachineKind.GENERATOR) {
+        if (kind.usesFuel()) {
             // Llama encima del slot de combustible
             int fx = x + 81, fy = y + 36, size = 14;
             g.fill(fx, fy, fx + size, fy + size, SLOT);
@@ -98,6 +98,16 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
                 }
                 g.disableScissor();
             }
+        } else if (kind == MachineKind.QUARRY) {
+            Component status = switch (max) {
+                case 0 -> Component.translatable("gui.retrotech.quarry.frame");
+                case 1 -> Component.translatable("gui.retrotech.quarry.mining", progress);
+                default -> Component.translatable("gui.retrotech.quarry.done");
+            };
+            g.drawString(font, status, x + 10, y + 34, 0xFF404040, false);
+        } else if (kind == MachineKind.REDSTONE_ENGINE) {
+            Component status = Component.translatable(progress > 0 ? "gui.retrotech.engine.on" : "gui.retrotech.engine.off");
+            g.drawString(font, status, x + 10, y + 34, 0xFF404040, false);
         } else if (kind == MachineKind.SOLAR_PANEL) {
             // Sol: amarillo cuando genera, gris de noche o con lluvia
             int sx = x + 72, sy = y + 30, size = 24;

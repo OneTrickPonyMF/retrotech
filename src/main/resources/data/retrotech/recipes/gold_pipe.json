@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MGM"
+  ],
+  "key": {
+    "M": {
+      "tag": "forge:ingots/gold"
+    },
+    "G": {
+      "tag": "forge:glass"
+    }
+  },
+  "result": {
+    "item": "retrotech:gold_pipe",
+    "count": 8
+  }
+}

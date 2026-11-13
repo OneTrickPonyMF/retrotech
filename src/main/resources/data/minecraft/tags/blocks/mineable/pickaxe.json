@@ -10,6 +10,9 @@
     "retrotech:macerator",
     "retrotech:compressor",
     "retrotech:extractor",
-    "retrotech:solar_panel"
+    "retrotech:solar_panel",
+    "retrotech:stirling_engine",
+    "retrotech:quarry",
+    "retrotech:quarry_frame"
   ]
 }

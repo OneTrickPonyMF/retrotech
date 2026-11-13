@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    " G ",
+    "gpg"
+  ],
+  "key": {
+    "C": {
+      "tag": "forge:cobblestone"
+    },
+    "G": {
+      "tag": "forge:glass"
+    },
+    "g": {
+      "tag": "forge:gears/stone"
+    },
+    "p": {
+      "item": "minecraft:piston"
+    }
+  },
+  "result": {
+    "item": "retrotech:stirling_engine",
+    "count": 1
+  }
+}
