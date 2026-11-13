@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "TMT",
+    " F "
+  ],
+  "key": {
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "T": {
+      "tag": "forge:ingots/tin"
+    },
+    "M": {
+      "item": "retrotech:machine_casing"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "retrotech:generator",
+    "count": 1
+  }
+}

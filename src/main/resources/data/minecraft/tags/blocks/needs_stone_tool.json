@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "retrotech:tin_ore",
+    "retrotech:deepslate_tin_ore",
+    "retrotech:tin_block"
+  ]
+}

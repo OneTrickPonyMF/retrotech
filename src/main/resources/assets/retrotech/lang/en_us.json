@@ -1,0 +1,16 @@
+{
+  "itemGroup.retrotech": "RetroTech",
+  "block.retrotech.tin_ore": "Tin Ore",
+  "block.retrotech.deepslate_tin_ore": "Deepslate Tin Ore",
+  "block.retrotech.tin_block": "Block of Tin",
+  "block.retrotech.machine_casing": "Machine Casing",
+  "block.retrotech.tin_cable": "Tin Cable",
+  "block.retrotech.copper_cable": "Copper Cable",
+  "block.retrotech.gold_cable": "Gold Cable",
+  "block.retrotech.generator": "Generator",
+  "block.retrotech.electric_furnace": "Electric Furnace",
+  "block.retrotech.batbox": "BatBox",
+  "item.retrotech.raw_tin": "Raw Tin",
+  "item.retrotech.tin_ingot": "Tin Ingot",
+  "gui.retrotech.energy": "%s / %s EU"
+}

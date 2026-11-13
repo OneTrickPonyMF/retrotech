@@ -1,0 +1,6 @@
+{
+  "parent": "retrotech:block/cable_side",
+  "textures": {
+    "cable": "retrotech:block/gold_cable"
+  }
+}

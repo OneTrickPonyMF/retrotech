@@ -1,0 +1,16 @@
+{
+  "itemGroup.retrotech": "RetroTech",
+  "block.retrotech.tin_ore": "Mineral de estaño",
+  "block.retrotech.deepslate_tin_ore": "Mineral de estaño de pizarra profunda",
+  "block.retrotech.tin_block": "Bloque de estaño",
+  "block.retrotech.machine_casing": "Carcasa de máquina",
+  "block.retrotech.tin_cable": "Cable de estaño",
+  "block.retrotech.copper_cable": "Cable de cobre",
+  "block.retrotech.gold_cable": "Cable de oro",
+  "block.retrotech.generator": "Generador",
+  "block.retrotech.electric_furnace": "Horno eléctrico",
+  "block.retrotech.batbox": "BatBox",
+  "item.retrotech.raw_tin": "Estaño en bruto",
+  "item.retrotech.tin_ingot": "Lingote de estaño",
+  "gui.retrotech.energy": "%s / %s EU"
+}

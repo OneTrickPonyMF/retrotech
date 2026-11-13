@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "RFR",
+    " M "
+  ],
+  "key": {
+    "C": {
+      "item": "retrotech:tin_cable"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "M": {
+      "item": "retrotech:machine_casing"
+    }
+  },
+  "result": {
+    "item": "retrotech:electric_furnace",
+    "count": 1
+  }
+}

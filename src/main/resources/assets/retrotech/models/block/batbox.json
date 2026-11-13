@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "retrotech:block/batbox_side",
+    "north": "retrotech:block/batbox_front",
+    "south": "retrotech:block/batbox_side",
+    "east": "retrotech:block/batbox_side",
+    "west": "retrotech:block/batbox_side",
+    "up": "retrotech:block/batbox_top",
+    "down": "retrotech:block/batbox_top"
+  }
+}

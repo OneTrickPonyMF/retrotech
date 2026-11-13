@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "retrotech:block/machine_top",
+    "side": "retrotech:block/machine_side",
+    "front": "retrotech:block/generator_front"
+  }
+}
