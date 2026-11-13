@@ -26,6 +26,33 @@ jobs:
       - name: Compilar
         run: gradle build --no-daemon --stacktrace
 
+      - name: Probar el mod en un servidor (crear mundo y buscar errores)
+        run: |
+          mkdir -p run
+          echo "eula=true" > run/eula.txt
+          printf "online-mode=false\nlevel-seed=retrotech\nspawn-protection=0\n" > run/server.properties
+          gradle runServer --no-daemon > server.out 2>&1 &
+          PID=$!
+          for i in $(seq 1 120); do
+            if grep -q "Done (" run/logs/latest.log 2>/dev/null; then echo "Servidor iniciado"; break; fi
+            if ! kill -0 $PID 2>/dev/null; then echo "El servidor se cerró"; break; fi
+            sleep 5
+          done
+          sleep 5
+          kill $PID 2>/dev/null || true
+          pkill -f "net.minecraftforge" 2>/dev/null || true
+          echo "---- Avisos y errores de retrotech ----"
+          grep -aiE "(WARN|ERROR).*retrotech|retrotech.*(error|exception|failed)" run/logs/latest.log || echo "(ninguno)"
+          if ! grep -q "Done (" run/logs/latest.log 2>/dev/null; then
+            echo "---- El servidor no llegó a iniciar ----"
+            tail -150 run/logs/latest.log 2>/dev/null || tail -150 server.out
+            exit 1
+          fi
+          if grep -aiE "ERROR.*retrotech|retrotech.*(Exception|Failed to)" run/logs/latest.log; then
+            echo "Se encontraron errores de retrotech"
+            exit 1
+          fi
+
       - name: Subir el .jar
         uses: actions/upload-artifact@v4
         with:
