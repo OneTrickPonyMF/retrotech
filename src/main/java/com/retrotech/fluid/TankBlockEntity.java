@@ -19,7 +19,13 @@ import net.minecraftforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/** Tanque de 16 baldes. Si hay otro tanque abajo, el fluido cae hacia ese. */
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Tanque de 16 baldes. Los tanques apilados funcionan como uno solo:
+ * se llenan desde el de abajo hacia arriba y se vacían desde el de arriba hacia abajo.
+ */
 public class TankBlockEntity extends BlockEntity {
     public static final int CAPACITY = 16000;
 
@@ -31,7 +37,7 @@ public class TankBlockEntity extends BlockEntity {
             needsSync = true;
         }
     };
-    private LazyOptional<IFluidHandler> fluidCap = LazyOptional.of(() -> tank);
+    private LazyOptional<IFluidHandler> fluidCap = LazyOptional.of(ColumnHandler::new);
 
     public TankBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.TANK.get(), pos, state);
@@ -96,6 +102,102 @@ public class TankBlockEntity extends BlockEntity {
     @Override
     public void reviveCaps() {
         super.reviveCaps();
-        fluidCap = LazyOptional.of(() -> tank);
+        fluidCap = LazyOptional.of(ColumnHandler::new);
+    }
+
+    /** Todos los tanques de la columna, de abajo hacia arriba. */
+    private List<TankBlockEntity> column() {
+        List<TankBlockEntity> list = new ArrayList<>();
+        if (level == null) {
+            list.add(this);
+            return list;
+        }
+        BlockPos p = worldPosition;
+        for (int i = 0; i < 64 && level.getBlockEntity(p.below()) instanceof TankBlockEntity; i++) p = p.below();
+        for (int i = 0; i < 64 && level.getBlockEntity(p) instanceof TankBlockEntity t; i++) {
+            list.add(t);
+            p = p.above();
+        }
+        if (list.isEmpty()) list.add(this);
+        return list;
+    }
+
+    /** Lo que ven los baldes, tuberías y bombas: la columna entera como un solo tanque. */
+    private class ColumnHandler implements IFluidHandler {
+        @Override
+        public int getTanks() {
+            return 1;
+        }
+
+        @NotNull
+        @Override
+        public FluidStack getFluidInTank(int t) {
+            FluidStack total = FluidStack.EMPTY;
+            for (TankBlockEntity tank : column()) {
+                FluidStack f = tank.tank.getFluid();
+                if (f.isEmpty()) continue;
+                if (total.isEmpty()) {
+                    total = f.copy();
+                } else if (total.isFluidEqual(f)) {
+                    total.grow(f.getAmount());
+                }
+            }
+            return total;
+        }
+
+        @Override
+        public int getTankCapacity(int t) {
+            return column().size() * CAPACITY;
+        }
+
+        @Override
+        public boolean isFluidValid(int t, @NotNull FluidStack stack) {
+            return true;
+        }
+
+        @Override
+        public int fill(FluidStack resource, FluidAction action) {
+            if (resource.isEmpty()) return 0;
+            int remaining = resource.getAmount();
+            for (TankBlockEntity tank : column()) {
+                FluidStack inside = tank.tank.getFluid();
+                if (!inside.isEmpty() && !inside.isFluidEqual(resource)) break; // otro fluido: no sigue subiendo
+                FluidStack part = resource.copy();
+                part.setAmount(remaining);
+                remaining -= tank.tank.fill(part, action);
+                if (remaining <= 0) break;
+            }
+            return resource.getAmount() - remaining;
+        }
+
+        @NotNull
+        @Override
+        public FluidStack drain(FluidStack resource, FluidAction action) {
+            FluidStack current = getFluidInTank(0);
+            if (resource.isEmpty() || current.isEmpty() || !current.isFluidEqual(resource)) return FluidStack.EMPTY;
+            return drain(resource.getAmount(), action);
+        }
+
+        @NotNull
+        @Override
+        public FluidStack drain(int maxDrain, FluidAction action) {
+            List<TankBlockEntity> tanks = column();
+            FluidStack result = FluidStack.EMPTY;
+            int remaining = maxDrain;
+            for (int i = tanks.size() - 1; i >= 0 && remaining > 0; i--) {
+                FluidTank tank = tanks.get(i).tank;
+                if (tank.isEmpty()) continue;
+                if (!result.isEmpty() && !result.isFluidEqual(tank.getFluid())) break;
+                FluidStack drained = tank.drain(remaining, action);
+                if (drained.isEmpty()) continue;
+                if (result.isEmpty()) {
+                    result = drained.copy();
+                } else {
+                    result.grow(drained.getAmount());
+                }
+                remaining -= drained.getAmount();
+            }
+            return result;
+        }
     }
 }

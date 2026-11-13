@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "down=false,up=false": {
       "model": "retrotech:block/tank"
+    },
+    "down=true,up=false": {
+      "model": "retrotech:block/tank_down"
+    },
+    "down=false,up=true": {
+      "model": "retrotech:block/tank_up"
+    },
+    "down=true,up=true": {
+      "model": "retrotech:block/tank_up_down"
     }
   }
 }

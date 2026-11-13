@@ -1,0 +1,39 @@
+{
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "retrotech:block/tank_side",
+    "side": "retrotech:block/tank_side_down",
+    "top": "retrotech:block/tank_top"
+  },
+  "elements": [
+    {
+      "from": [
+        2,
+        0,
+        2
+      ],
+      "to": [
+        14,
+        16,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#side"
+        },
+        "south": {
+          "texture": "#side"
+        },
+        "east": {
+          "texture": "#side"
+        },
+        "west": {
+          "texture": "#side"
+        },
+        "up": {
+          "texture": "#top"
+        }
+      }
+    }
+  ]
+}
