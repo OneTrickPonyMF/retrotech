@@ -1,22 +1,14 @@
-# RetroTech — etapa 1
+# RetroTech
 
 Remake no oficial y hecho desde cero, inspirado en IndustrialCraft 2 y BuildCraft, para **Minecraft 1.20.1 con Forge**.
 No usa código ni texturas de IC2 ni de BuildCraft: todo es original.
 
-## Cómo compilarlo
+## Descarga
 
-1. Instalá **Java 17** (por ejemplo, Eclipse Temurin 17).
-2. Descargá el **MDK de Forge 1.20.1** desde https://files.minecraftforge.net (botón "Mdk") y descomprimilo en una carpeta.
-3. En esa carpeta **borrá la carpeta `src/`** del MDK.
-4. Copiá dentro de la carpeta del MDK la carpeta `src/` y el archivo `gradle.properties` de este zip (reemplazando el que viene).
-   - El `build.gradle` y el `gradlew` del MDK se quedan como están.
-5. Abrí una terminal en la carpeta y ejecutá:
-   - Windows: `gradlew runClient` (para probar) o `gradlew build` (para generar el .jar)
-   - Linux/Mac: `./gradlew runClient` o `./gradlew build`
-6. El .jar queda en `build/libs/retrotech-0.1.0.jar`. Va en la carpeta `mods` de una instalación de Forge 1.20.1.
+El `.jar` se compila solo en GitHub con cada cambio:
+https://github.com/OneTrickPonyMF/retrotech/releases/download/dev/retrotech-0.1.0.jar
 
-La primera vez Gradle descarga Minecraft y Forge, así que tarda varios minutos.
-Si aparece algún error de compilación, copiame el mensaje completo y lo corrijo.
+Va en la carpeta `mods` de Minecraft 1.20.1 con Forge 47.4.x.
 
 ## Qué incluye
 
@@ -32,15 +24,23 @@ Hay niveles de voltaje como en IC2: si una fuente de más voltaje alimenta una m
 | Cable de estaño | 32 EU/t, pérdida 0,025 EU por bloque |
 | Cable de cobre | 128 EU/t, pérdida 0,2 EU por bloque |
 | Cable de oro | 512 EU/t, pérdida 0,4 EU por bloque |
+| Macerador | 2 EU/t, 300 ticks. Mineral o mineral en bruto → 2 polvos. También piedra, grava, huesos, etc. |
+| Compresor | 2 EU/t, 300 ticks. 4 arena → arenisca, hielo compacto, etc. |
+| Extractor | 2 EU/t, 300 ticks. Resina → 3 caucho. |
+| Panel solar | 1 EU/t de día, con cielo despejado y sin lluvia. |
+| Batería recargable | Guarda 10.000 EU. Se carga en la BatBox (slot de arriba) y alimenta máquinas desde su slot de batería. |
+| Árbol de caucho | Aparece en bosques, junglas, taigas y pantanos. Con el grifo se saca resina de las manchas amarillas. |
 
 **Recetas:**
 - Lingote de estaño: fundiendo estaño en bruto o el mineral (horno o alto horno). Bloque de estaño con 9 lingotes.
 - Cable de estaño: 3 lingotes de estaño en fila → 6 cables.
-- Cable de cobre / oro: fila de lingotes entre dos filas de lana → 6 cables.
+- Cable de cobre / oro: fila de lingotes entre dos filas de caucho → 6 cables.
 - Carcasa de máquina: 8 lingotes de hierro alrededor.
 - Generador: redstone arriba, estaño–carcasa–estaño en el medio, horno abajo.
 - Horno eléctrico: cable de estaño arriba, redstone–horno–redstone en el medio, carcasa abajo.
 - BatBox: madera–cable–madera / 3 redstone / 3 maderas.
+
+Las recetas del macerador, compresor y extractor están en `data/retrotech/recipes/<máquina>/` y se pueden agregar más con datapacks.
 
 Las tolvas pueden cargar combustible en el generador, cargar y vaciar el horno eléctrico.
 
@@ -55,6 +55,5 @@ Las tolvas pueden cargar combustible en el generador, cargar y vaciar el horno e
 
 ## Próximas etapas
 
-2. Árboles de caucho y caucho, cables aislados, macerador, extractor, compresor, polvos (duplicar minerales), baterías y paneles solares.
 3. BuildCraft: motores, tuberías de items y de fluidos, quarry.
 4. Petróleo y refinería, MFE/MFSU, reactor nuclear y herramientas eléctricas.
