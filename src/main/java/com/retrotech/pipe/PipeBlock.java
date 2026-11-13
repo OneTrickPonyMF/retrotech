@@ -93,8 +93,10 @@ public class PipeBlock extends BaseEntityBlock {
         if (neighbor.getBlock() instanceof PipeBlock other) return other.fluid == fluid && type.canConnectTo(other.type);
         BlockEntity be = level.getBlockEntity(neighborPos);
         if (be == null) return false;
-        if (be.getCapability(fluid ? ForgeCapabilities.FLUID_HANDLER : ForgeCapabilities.ITEM_HANDLER,
-                dir.getOpposite()).isPresent()) return true;
+        boolean handles = fluid
+                ? be.getCapability(ForgeCapabilities.FLUID_HANDLER, dir.getOpposite()).isPresent()
+                : be.getCapability(ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).isPresent();
+        if (handles) return true;
         // La de madera también se conecta a motores (para recibir energía)
         return type == PipeType.WOODEN && be.getCapability(ForgeCapabilities.ENERGY, dir.getOpposite())
                 .map(e -> e.canExtract()).orElse(false);
