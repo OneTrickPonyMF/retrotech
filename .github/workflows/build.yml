@@ -5,6 +5,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,3 +31,14 @@ jobs:
         with:
           name: retrotech-jar
           path: build/libs/*.jar
+
+      - name: Publicar en Releases (última versión de prueba)
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: dev
+          name: RetroTech (versión de prueba más reciente)
+          body: Compilado automáticamente desde el último cambio en main. Poné el .jar en la carpeta mods de Forge 1.20.1.
+          prerelease: true
+          make_latest: false
+          files: build/libs/*.jar
